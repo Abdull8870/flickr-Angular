@@ -1,0 +1,49 @@
+form {
+  width: auto;
+  margin: auto;
+}
+
+//mdb-card {
+//  width: 45%;
+//  height: 5%;
+//  margin-right:2rem;
+//  margin-top: 1rem;
+//  margin-bottom: 1 rem;
+//  margin-left: 2rem;
+//}
+
+
+mdb-card {
+  width: auto;
+  height: auto;
+  margin: auto;
+}
+
+img {
+  width: 30rem;
+  height: 25rem;
+}
+
+label{
+  margin-left: 4%;
+}
+
+
+
+
+@media screen and (max-width: 1000px) {
+
+  mdb-card  {
+    width: 95%;
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+  img {
+    width: 25rem;
+    height: 30rem;
+  }
+
+}

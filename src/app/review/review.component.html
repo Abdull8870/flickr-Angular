@@ -1,0 +1,61 @@
+<div class="d-flex justify-content-center mt-2" *ngIf="loading">
+    <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+<div class="container"  *ngIf="!loading">
+    <div class="row">
+        <div class="col-sm">
+            <mdb-card>
+                <mdb-card-body>
+                    <mdb-card-title>
+                        <h4 style="text-align:center;color:#33b5e5;">{{image.title}}</h4>
+                    </mdb-card-title>
+                    <mdb-card-text>
+                        <img src="{{image.url}}_b.jpg" alt="{{image.title}}"/>
+                    </mdb-card-text>
+                </mdb-card-body>
+            </mdb-card>
+        </div>
+       <div class="col-sm">
+           <mdb-card>
+               <mdb-card-body>
+                   <mdb-card-title>
+                       <h4 style="text-align:center;color: #212121;">Image Review</h4>
+                   </mdb-card-title>
+                   <mdb-card-text>
+                       <form class="text-center border border-light p-3 mt-2" (submit)="onRating(signupForm)" #signupForm="ngForm">
+                           <p class="mb-4">On a scale of 1-10 (1 being the lowest and 10 being the highest), how do you rate this image</p>
+                           <div class="form-group">
+                               <label *ngFor="let i of arr">
+                                   <input type="radio" name="options" id="option1" value="{{i}}" [(ngModel)]="answer" required> {{i}}
+                               </label>
+                           </div>
+                           <div class="form-group">
+                               <input type="text"
+                                      name="givenBy" ngModel class="form-control"
+                                      placeholder="Rating Given By" #givenBydInput="ngModel" required
+                                      [ngClass]=" (givenBydInput.invalid && givenBydInput.touched) ? 'is-invalid': (givenBydInput.valid && givenBydInput.touched)? 'is-valid': '' ">
+                               <div class="invalid-feedback">
+                                   Please enter your name
+                               </div>
+                           </div>
+                           <div class="form-group">
+                               <input type="textarea"
+                                      name="Reason" ngModel class="form-control"
+                                      placeholder="Reason for rating" #Reason="ngModel" required
+                                      [ngClass]=" (Reason.invalid && Reason.touched) ? 'is-invalid': (Reason.valid && Reason.touched)? 'is-valid': '' ">
+                               <div class="invalid-feedback">
+                                   Please provide the reason for the review
+                               </div>
+                           </div>
+                           <button  class="btn btn-primary btn-md"  type="submit" [disabled]="!signupForm.valid" >Submit</button>
+                       </form>
+                   </mdb-card-text>
+               </mdb-card-body>
+           </mdb-card>
+       </div>
+    </div>
+</div>
+
+
